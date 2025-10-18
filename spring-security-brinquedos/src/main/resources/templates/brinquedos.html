@@ -1,0 +1,14 @@
+<h2>Brinquedos Cadastrados</h2>
+<form action="/brinquedos" method="post">
+    <input type="text" name="nome" placeholder="Nome">
+    <input type="text" name="tipo" placeholder="Tipo">
+    <input type="number" step="0.01" name="preco" placeholder="Preço">
+    <button type="submit">Adicionar</button>
+</form>
+
+<ul>
+    <li th:each="b : ${lista}">
+        <span th:text="${b.nome} + ' - ' + ${b.tipo} + ' - R$' + ${b.preco}"></span>
+        <a th:href="@{'/brinquedos/delete/' + ${b.id}}">Excluir</a>
+    </li>
+</ul>
